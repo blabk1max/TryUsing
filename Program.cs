@@ -37,15 +37,17 @@ namespace TrfyUsing {
 
 /*
 
-usingステートメントに対して、try~catchを使う場合、usingの外側に記述する。
-これにより、try~catchの処理を待たずにDisposeを行うことができるため、最速でリソースを解放することができる。
 
 try --->  using
+tryを外側にusingを内側にすると、usingでリソースが解放されてから例外を受け取る。
+
 Create Tracer
 Dispose Tracer
 Exception : Attempted to divide by zero.
 
 using ---> try
+usingを外側にtryを内側にすると、例外を受け取ってからusingでリソースが解放される。
+
 Create Tracer
 Exception : Attempted to divide by zero.
 Dispose Tracer
